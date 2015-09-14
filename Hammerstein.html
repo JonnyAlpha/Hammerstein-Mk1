@@ -1,0 +1,129 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content = "height = device-height, width = 420, user-scalable = no" /> 
+<title>Hammerstein_Mobile_Control_Panel</title>
+<script type="text/javascript" src="/webiopi.js"></script>
+<script type="text/javascript">
+
+   	function stop() {
+   	webiopi().callMacro("stop");
+   	}
+   
+   	function forward() {
+       webiopi().callMacro("forward");
+    }
+
+   	function left() {
+       webiopi().callMacro("left");
+    }
+
+   	function right() {
+       webiopi().callMacro("right");
+    }
+
+   	function backward() {
+       webiopi().callMacro("backward");
+    }
+
+	function servo_centre() {
+		webiopi().callMacro("servo_centre");
+	}	
+   	
+   	function servo_left() {
+       webiopi().callMacro("servo_left");
+    }
+
+	function servo_right() {
+		webiopi().callMacro("servo_right");
+	}
+		
+   function LED_On() {
+       webiopi().callMacro("led_on");
+    }
+   
+   function LED_Off() {
+       webiopi().callMacro("led_off");
+    }	
+
+</script>
+
+
+<style type="text/css">
+
+.myButton {
+   -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+   -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+   box-shadow:inset 0px 1px 0px 0px #ffffff;
+   background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+   background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+   background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+   background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+   background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+   background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+   background-color:#ffffff;
+   -moz-border-radius:6px;
+   -webkit-border-radius:6px;
+   border-radius:6px;
+   border:1px solid #dcdcdc;
+   display:inline-block;
+   cursor:pointer;
+   color:#666666;
+   font-family:Arial;
+   font-size:15px;
+   font-weight:bold;
+   padding:6px 24px;
+   text-decoration:none;
+   text-shadow:0px 1px 0px #ffffff;
+        width: 130px;
+        height:30px;
+        margin:1px;
+}
+.myButton:hover {
+   background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
+   background:-moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+   background:-webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+   background:-o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+   background:-ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+   background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+   background-color:#f6f6f6;
+        padding:6px 24px;
+}
+.myButton:active {
+   color:#ff0000;
+        position:relative;
+   top:1px;
+        padding:6px 24px;
+}
+
+</style>
+
+</head>
+<body>
+<center><h2>Hammerstein Control Panel</h2></center><br>
+
+
+<center>
+<table>
+<tr><td colspan=3 align="center"><button class="myButton" onmousedown="forward()" onmouseup="stop()">Forward</button></td></tr>
+<tr><td><button class="myButton" type="button" onmousedown="left()" onmouseup="stop()">Left</button></td>
+<td><button class="myButton" type="button" onclick="stop()">Stop</button></td>
+<td><button class="myButton" type="button" onmousedown="right()" onmouseup="stop()">Right</button></td></tr>
+<tr><td colspan=3 align="center"><button class="myButton" type="button" onmousedown="backward()" onmouseup="stop()">Backward</button></td></tr>
+<tr><td colspan=3 align="center"><button class="myButton" type="button" onmousedown="LED_On()" onmouseup="LED_Off()">LED_On</button></td></tr>
+</table>
+</center>
+
+<center><h2>Sensor Control</h2></center><br>
+<center>
+<table>
+<tr><td><button class="myButton" type="button" onclick="servo_left()">Scan Left</button></td>
+<td><button class="myButton" type="button" onclick="servo_centre()">Centre</button></td>
+<td><button class="myButton" type="button" onclick="servo_right()">Scan Right</button></td></tr>
+</table>
+</center>
+
+<center><h2>Robo Cam</h2></center>
+	<center><img id="streamimage" src="http://192.168.1.87:10088/?action=stream" /></center>
+</body>
+</html>
