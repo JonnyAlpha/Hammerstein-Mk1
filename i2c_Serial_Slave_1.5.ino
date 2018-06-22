@@ -20,9 +20,9 @@ int state = 0; // Was used to check High and Low (not yet used)
 
 //Defines for reading distances and collision avoidance when in autonomous mode (when setup) 
 #define microsecondsToCentimeters(microseconds) (unsigned long)microseconds / 29.1 / 2.0
-#define Min_Action_Distance 40 // Set maximum allowaable distance to obstacle
+#define Min_Action_Distance 40 // Set maximum permitted distance to an obstacle
 
-//Time delays for motors and servos if required
+//Time delays for motors and servos in milliseconds if required
 #define ServoMoveDelay 2000
 
 //Setup motor controller pins for L298N
@@ -53,7 +53,7 @@ unsigned int distance;
 //unsigned int LeftDistance;
 //unsigned int RightDistance;
 unsigned long lastDataReceivedMillis; 
-unsigned long maxGap = 10000;
+unsigned long maxGap = 60000;
 unsigned int mode;
 
 void setup() {
@@ -84,8 +84,9 @@ void setup() {
   //Set mode for Led test pin
   pinMode(Led, OUTPUT);
 
-  // Message to serial monitor declaring that robot is ready
+  // Send a message to the serial monitor declaring that robot is ready
   Serial.println("Hammerstein Ready!");
+  // Set operation mode (manual / autonomous) to 0 - 0 = manual, 1 = autonomous
   mode = 0;
 }
 
