@@ -10,10 +10,10 @@
 
 #/usr/bin/env python
 
-import webiopi # Import webiopi - software to communicate with a Rapsberry Pi over a web interface
+import webiopi 	# Import webiopi - software to communicate with a Rapsberry Pi over a web interface
 import smbus as smbus
 import time
-import os
+import os	# used to call bash sripts 
 
 # Uncomment the following two lines if using the Pi GPIO
 #import pigpio # pigpio is a custom module for controlling GPIO pins
